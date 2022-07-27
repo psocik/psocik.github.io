@@ -1,8 +1,8 @@
-# Solution
-
 Hi,
 
 recently I have finished challenge [grabthephisher](https://cyberdefenders.org/blueteam-ctf-challenges/95) on cyber defenders.org. Let's check how to solve those puzzles.
+
+# Solution
 
 ### 1 Which wallet is used for asking the seed phrase?
 
