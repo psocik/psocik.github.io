@@ -10,7 +10,7 @@ I will present some changes what was made:
 
 There is new section in file:
 
-```HTML
+```html
 	<!--SYSMON EVENT ID 27 : FILE BLOCK [FileBlockExecutable]-->
 	<RuleGroup name="ImageBlock" groupRelation="or">
 		<FileBlockExecutable onmatch="include">
@@ -23,7 +23,7 @@ There is new section in file:
 
 This rule will trigger when any of conditions will be present in the system. Developers divided rules in few groups.
 
-```HTML
+```html
 			<!-- Executables dropped to suspicious folders -->
 			<TargetFilename condition="begin with">C:\Users\Public\</TargetFilename> <!-- often used staging directories; could cause false positives --> 
 			<TargetFilename condition="begin with">C:\Perflogs\</TargetFilename> <!-- often used staging directories --> 
@@ -47,9 +47,9 @@ First part contains several paths where it is common to store malware for execut
 
 When i tried to save copy of file cmd.exe in My profile in Music folder sysmon blocked the action.
 
-[![image-1661082903515.png](http://book.pn.lo:1280/uploads/images/gallery/2022-08/scaled-1680-/image-1661082903515.png)](http://book.pn.lo:1280/uploads/images/gallery/2022-08/image-1661082903515.png)
+[![2022-08-21-sysmon-14-with-block-executable-1.png](/images/2022-08-21-sysmon-14-with-block-executable/2022-08-21-sysmon-14-with-block-executable-1.png)](/images/2022-08-21-sysmon-14-with-block-executable/2022-08-21-sysmon-14-with-block-executable-1.png)
 
-```HTML
+```html
 			<!-- Executables double extensions -->
 			<TargetFilename condition="end with">.pdf.exe</TargetFilename>
 			<TargetFilename condition="end with">.doc.exe</TargetFilename>
@@ -75,11 +75,11 @@ Second section prevent storing files with double extension and it has to be exec
 
 I used notepad++ to open cmd.exe file, and tried to store it on my desktop with name: ping.pdf.exe. Sysmon blocked this event.
 
-[![image-1661082598031.png](http://book.pn.lo:1280/uploads/images/gallery/2022-08/scaled-1680-/image-1661082598031.png)](http://book.pn.lo:1280/uploads/images/gallery/2022-08/image-1661082598031.png)
+[![2022-08-21-sysmon-14-with-block-executable-2.png](/images/2022-08-21-sysmon-14-with-block-executable/2022-08-21-sysmon-14-with-block-executable-2.png)](/images/2022-08-21-sysmon-14-with-block-executable/2022-08-21-sysmon-14-with-block-executable-2.png)
 
 Next section of config file contains hashes of well know samples of malware.
 
-```HTML
+```html
 <!-- Hacktool Blocks based on Imphashes -->
 			<Hashes condition="contains">IMPHASH=BCCA3C247B619DCD13C8CDFF5F123932</Hashes> <!-- PetitPotam -->
 			<Hashes condition="contains">IMPHASH=3A19059BD7688CB88E70005F18EFC439</Hashes> <!-- PetitPotam -->
@@ -168,7 +168,7 @@ Next section of config file contains hashes of well know samples of malware.
 
 Next section of config file contains process names which should not save executable files in the system in any folder.
 
-```HTML
+```html
 			<!-- Microsoft Office Programs Dropping Executables -->
 			<Image condition="image">winword.exe</Image>
 			<Image condition="image">excel.exe</Image>
@@ -200,13 +200,13 @@ Next section of config file contains process names which should not save executa
 
 **How to install and run Sysmon?**
 
-[![image-1661081783996.png](http://book.pn.lo:1280/uploads/images/gallery/2022-08/scaled-1680-/image-1661081783996.png)](http://book.pn.lo:1280/uploads/images/gallery/2022-08/image-1661081783996.png)
+[![2022-08-21-sysmon-14-with-block-executable-3.png](/images/2022-08-21-sysmon-14-with-block-executable/2022-08-21-sysmon-14-with-block-executable-3.png)](/images/2022-08-21-sysmon-14-with-block-executable/2022-08-21-sysmon-14-with-block-executable-3.png)
 
 Just download from first link in the article sysmon software. Then download <span class="author flex-self-stretch">Neo23x0</span> config *sysmonconfig-export-block.xml*.
 
 Extract sysmon zip, copy config file to sysmon folder and start the terminal/powershell console. Run sysmon with parameters:
 
-```Powershell
+```powershell
 .\Sysmon64.exe -accepteula -i .\sysmonconfig-export-block.xml
 ```
 
@@ -214,6 +214,6 @@ Now your system is protected with all the rules implemented by developers. This 
 
 You can display logs with command:
 
-```Powershell
+```powershell
 Get-WinEvent -LogName Microsoft-Windows-Sysmon/Operational | select id, message | fl
 ```
