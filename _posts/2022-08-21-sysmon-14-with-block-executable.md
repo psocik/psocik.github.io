@@ -215,5 +215,10 @@ You can display logs with command:
 ```powershell
 Get-WinEvent -LogName Microsoft-Windows-Sysmon/Operational | select id, message | fl
 ```
+
+There is also sigma rule what can help to implement rule in your SIEM:
+[https://github.com/SigmaHQ/sigma/blob/master/rules/windows/sysmon/sysmon_file_block_exe.yml](https://github.com/SigmaHQ/sigma/blob/master/rules/windows/sysmon/sysmon_file_block_exe.yml)
+
 Enjoy detection of malicious executable blocks !
+
 **See you soon !**
