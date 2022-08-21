@@ -41,9 +41,9 @@ This rule will trigger when any of conditions will be present in the system. Dev
             
 ```
 
-First part contains several paths where it is common to store malware for execution. This rules will prevent any process to store executable block in those paths. Last four are a bit different, because we do want to block saving for any user in the system, there is condition "**contains all**" which match with: has to be in *C:\\Users\\* and has to be in *\\Contact\\.*
+First part contains several paths where it is common to store malware for execution. These rules will prevent any process to store executable block in those paths. Last four are a bit different, because we do want to block saving for any user in the system, there is condition "**contains all**" which match with: must be in *C:\\Users\\* and has to be in *\\Contact\\.*
 
-When i tried to save copy of file cmd.exe in My profile in Music folder sysmon blocked the action.
+When I tried to save copy of file cmd.exe in My profile in Music folder sysmon blocked the action.
 
 [![2022-08-21-sysmon-14-with-block-executable-1.png](/images/2022-08-21-sysmon-14-with-block-executable/2022-08-21-sysmon-14-with-block-executable-1.png)](/images/2022-08-21-sysmon-14-with-block-executable/2022-08-21-sysmon-14-with-block-executable-1.png)
 
@@ -69,9 +69,9 @@ When i tried to save copy of file cmd.exe in My profile in Music folder sysmon b
             
 ```
 
-Second section prevent storing files with double extension and it has to be executable - Sysmon event id 27 condition. Any process will not be able to store executable files.
+Second section prevent storing files with double extension, and it must be executable - Sysmon event id 27 condition. Any process will not be able to store executable files.
 
-I used notepad++ to open cmd.exe file, and tried to store it on my desktop with name: ping.pdf.exe. Sysmon blocked this event.
+I used notepad++ to open cmd.exe file and tried to store it on my desktop with name: ping.pdf.exe. Sysmon blocked this event.
 
 [![2022-08-21-sysmon-14-with-block-executable-2.png](/images/2022-08-21-sysmon-14-with-block-executable/2022-08-21-sysmon-14-with-block-executable-2.png)](/images/2022-08-21-sysmon-14-with-block-executable/2022-08-21-sysmon-14-with-block-executable-2.png)
 
