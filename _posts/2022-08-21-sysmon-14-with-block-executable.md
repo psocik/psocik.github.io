@@ -1,5 +1,3 @@
-# Sysmon
-
 Microsoft introduced new version of Sysinternals software - Sysmon version 14.0 - [https://docs.microsoft.com/en-gb/sysinternals/downloads/sysmon](https://docs.microsoft.com/en-gb/sysinternals/downloads/sysmon).
 
  This major update to Sysmon, an advanced host monitoring tool, adds a new event type, *FileBlockExecutable* that prevents processes from creating executable files in specified locations.
@@ -217,3 +215,5 @@ You can display logs with command:
 ```powershell
 Get-WinEvent -LogName Microsoft-Windows-Sysmon/Operational | select id, message | fl
 ```
+Enjoy detection of malicious executable blocks !
+**See you soon !**
