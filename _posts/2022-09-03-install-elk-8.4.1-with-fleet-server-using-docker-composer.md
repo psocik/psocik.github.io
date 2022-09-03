@@ -10,7 +10,7 @@ All bellow definition for docker composer is modified solutions from elastic doc
 
 Docker compose configuration for first stack:
 
-```YAML
+```yaml
 version: '3'
 services:
   setup:
