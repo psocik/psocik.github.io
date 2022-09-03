@@ -1,6 +1,4 @@
-Hi,
-
-I will deploy ELK stack in docker environment. Architecture proposed in this deployment contains two docker stacks. First stack will generate certificates for elastic servers. Second will be elastic stack components: Elasticsearch, kibana and fleet server.
+Hi, I will deploy ELK stack in docker environment. Architecture proposed in this deployment contains two docker stacks. First stack will generate certificates for elastic servers. Second will be elastic stack components: Elasticsearch, kibana and fleet server.
 
 All bellow definition for docker composer is modified solutions from elastic documentation, available at:
 
@@ -12,7 +10,7 @@ All bellow definition for docker composer is modified solutions from elastic doc
 
 Docker compose configuration for first stack:
 
-```yaml
+```YAML
 version: '3'
 services:
   setup:
@@ -297,7 +295,7 @@ I added config for fleet server to my docker stack configuration:
 
 After that I restarted stack. After a while, I could login to kibana and in fleet configuration page i noticed that fleet server was added with heal status updating. After few moments it was green healthy.
 
-[![2022-09-03-install-elk-841-using-docker-composer-1.png](/images/2022-09-03-install-elk-841-using-docker-composer-1.png)](/images/2022-09-03-install-elk-841-using-docker-composer-1.png)
+[![2022-09-03-install-elk-841-using-docker-composer-1.png](/images/2022-09-03-install-elk-841-using-docker-composer/2022-09-03-install-elk-841-using-docker-composer-1.png)](/images/2022-09-03-install-elk-841-using-docker-composer/2022-09-03-install-elk-841-using-docker-composer-1.png)
 
 Next step for fleet server to work and let agents to ship logs in elasticsearch I had to put certificates for "*output to elasticsearch*".
 
@@ -336,7 +334,7 @@ Now I have running server with elasticsearch, kibana and fleet server.
 
 To check I navigated to data\_streem section of Fleet page and you should get new data streams:
 
-[![2022-09-03-install-elk-841-using-docker-composer-2.png](/images/2022-09-03-install-elk-841-using-docker-composer-2.png)](/images/2022-09-03-install-elk-841-using-docker-composer-2.png)
+[![2022-09-03-install-elk-841-using-docker-composer-2.png](/images/2022-09-03-install-elk-841-using-docker-composer/2022-09-03-install-elk-841-using-docker-composer-2.png)](/images/2022-09-03-install-elk-841-using-docker-composer/2022-09-03-install-elk-841-using-docker-composer-2.png)
 
 Now I have all setup and running. Next I will configure agents for linux and windows, to start collecting logs from devices using elastic agent integrations.
 
