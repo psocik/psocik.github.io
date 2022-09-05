@@ -1,6 +1,6 @@
 Hi, I will deploy ELK stack in docker environment. Architecture proposed in this deployment contains two docker stacks. First stack will generate certificates for elastic servers. Second will be elastic stack components: Elasticsearch, kibana and fleet server.
 
-All bellow definition for docker composer is modified solutions from elastic documentation, available at:
+All bellow definition for docker compose is modified solutions from elastic documentation, available at:
 
 [https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html](https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html) - Elasticsearch
 
@@ -94,7 +94,7 @@ Second stack will consist of three containers: elasticsearch, kibana and fleet s
 
 In first step I will deploy core containers: elasticsearch and kibana. After that I will edit config file and add fleet server for first deployment. I must do this like that, because kibana has to generate tokens for fleet server and for me it is easier to make it work.
 
-Stack docker composer configuration:
+Stack docker compose configuration:
 
 ```yaml
 version: '3'
@@ -194,7 +194,7 @@ docker exec -it es /usr/share/elasticsearch/bin/elasticsearch-reset-password -u 
 docker exec -it es /usr/share/elasticsearch/bin/elasticsearch-reset-password -u kibana_system -i
 ```
 
-Remember to change container name **es** to your name. Remember to put password in composer configuration in kibana container configuration, after that restart both containers.
+Remember to change container name **es** to your name. Remember to put password in compose configuration in kibana container configuration, after that restart both containers.
 
 Stack is running. I check with basic ***curl*** requests.
 
