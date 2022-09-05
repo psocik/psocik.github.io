@@ -1,7 +1,9 @@
+---
 layout: post
 title: "POST TITLE"
 date: YYYY-MM-DD hh:mm:ss -0000
 categories: CATEGORY-1 CATEGORY-2
+---
 
 Hi, I will deploy ELK stack in docker environment. Architecture proposed in this deployment contains two docker stacks. First stack will generate certificates for elastic servers. Second will be elastic stack components: Elasticsearch, kibana and fleet server.
 
