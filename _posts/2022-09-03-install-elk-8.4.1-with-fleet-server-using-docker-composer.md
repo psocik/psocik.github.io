@@ -1,6 +1,5 @@
 ---
-title: "install-elk-8.4.1-with-fleet-server-using-docker-compose"
-categories: CATEGORY-1 CATEGORY-2
+title: "Install ELK 8.4.1 with fleet server using docker compose"
 ---
 
 Hi, I will deploy ELK stack in docker environment. Architecture proposed in this deployment contains two docker stacks. First stack will generate certificates for elastic servers. Second will be elastic stack components: Elasticsearch, kibana and fleet server.
